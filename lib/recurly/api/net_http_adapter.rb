@@ -92,7 +92,6 @@ module Recurly
               latency
             ]
             Recurly.log :info, response.to_hash.inspect
-            Recurly.log "helloworld"
             Recurly.log :info, response.body if response.body
           end
 
