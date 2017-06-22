@@ -91,8 +91,8 @@ module Recurly
               ),
               latency
             ]
-            Recurly.log :debug, response.to_hash.inspect
-            # Recurly.log :debug, response.body if response.body
+            Recurly.log :info, response.to_hash.inspect
+            Recurly.log :info, response.body if response.body
           end
 
           case code
