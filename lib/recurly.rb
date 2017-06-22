@@ -101,7 +101,11 @@ module Recurly
     # Convenience logging method includes a Logger#progname dynamically.
     # @return [true, nil]
     def log level, message
-      logger.send(level, name) { message }
+      if Thread.current[:recurly_config] && Thread.current[:recurly_config][:log_output]
+        logger.send(level, name) { message }
+      else
+        logger.send(level, name) { "redacted" }
+      end
     end
 
     if RUBY_VERSION <= "1.9.0"
