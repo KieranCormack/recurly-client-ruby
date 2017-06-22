@@ -104,7 +104,7 @@ module Recurly
       if Thread.current[:recurly_config] && Thread.current[:recurly_config][:log_output]
         logger.send(level, name) { message }
       else
-        logger.send(level, name) { "redacted" }
+        logger.send(level, name) { message }
       end
     end
 
